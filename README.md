@@ -1,6 +1,6 @@
 # Vishwakarma Dhama · DKVS website
 
-Static website for **Vishwakarma Dhama**, home of the Dakshina Kannada Vishwa Brahmana Sangha (DKVS), CA-21, Sector A, Yelahanka New Town, Bengaluru 560064.
+Static website for **Vishwakarma Dhama**, home of the Dakshina Kannada Vishwa Brahmana Sangha (DKVS), CA-21, Sector A, Satellite Town, Yelahanka, Bengaluru, Karnataka 560064.
 
 Open `index.html` in a browser. There is no build step. It can be hosted on GitHub Pages, Netlify or any static host.
 

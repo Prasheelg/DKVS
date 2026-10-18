@@ -14,3 +14,11 @@ Online listings don't agree on some details. Please check these with the Sangha 
 
 - Darshan timings (shown as 6–9 AM and 5–8 PM)
 - Office phone number (shown as 080 2271 4294)
+
+## Hosting (GitHub Pages)
+
+The site is served by GitHub Pages at **https://prasheelg.github.io/DKVS/**.
+
+To turn it on (one time): open the repo's **Settings → Pages**. Under **Build and deployment**, set **Source** to *Deploy from a branch*, pick branch `ccr-10938ef3-i46lnn` and folder `/ (root)`, then press **Save**. Every push to that branch updates the site within a minute or two.
+
+`.nojekyll` tells GitHub to serve the files as they are, without running Jekyll.

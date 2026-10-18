@@ -5,132 +5,376 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vishwakarma Dhama · DKVS</title>
 <meta name="description" content="Vishwakarma Dhama, home of the Dakshina Kannada Vishwa Brahmana Sangha (DKVS), Satellite Town, Yelahanka, Bengaluru.">
+<meta name="theme-color" content="#6a1c12">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+Kannada:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+Kannada:wght@500;700&family=Noto+Sans+Kannada:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
 <style>
   :root {
-    --saffron: #d9661f;
-    --saffron-deep: #b14a12;
-    --maroon: #6e1f1f;
-    --gold: #c99a2e;
-    --gold-soft: #f3e2b5;
-    --bg: #fdf8ee;
+    --saffron: #c8611f;
+    --saffron-deep: #a2461a;
+    --maroon: #6a1c12;
+    --gold: #b98a2f;
+    --gold-soft: #f6ecd6;
+    --bg: #fcf9f3;
     --surface: #ffffff;
-    --ink: #2b1d14;
-    --muted: #6b5848;
-    --line: #ead9b8;
-    --radius: 14px;
-    --max: 1120px;
+    --ink: #2a1d15;
+    --muted: #6f5d4e;
+    --line: #ebdfc8;
+    --shadow-sm: 0 1px 2px rgba(60, 30, 10, .06), 0 2px 8px rgba(60, 30, 10, .05);
+    --shadow-md: 0 4px 12px rgba(60, 30, 10, .08), 0 16px 32px rgba(60, 30, 10, .08);
+    --shadow-lg: 0 10px 24px rgba(60, 30, 10, .08), 0 30px 60px rgba(60, 30, 10, .12);
+    --radius: 16px;
+    --max: 1160px;
+    --ease: cubic-bezier(.22, .61, .36, 1);
+    --dur: .35s;
+    --sans: Inter, "Noto Sans Kannada", system-ui, sans-serif;
+    --serif: "Cormorant Garamond", "Noto Serif Kannada", Georgia, serif;
+    --dots: radial-gradient(rgba(255, 220, 160, .09) 1px, transparent 1.6px) 0 0 / 22px 22px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #1a120d; --surface: #241912; --ink: #f6ead6; --muted: #c4ad92;
-      --line: #3d2c1f; --gold-soft: #3a2a14; --maroon: #e8a27a;
+      --bg: #17100b; --surface: #211711; --ink: #f4e9d8; --muted: #bfa98f;
+      --line: #3a2b1f; --gold-soft: #1d140e; --maroon: #eaa47c; --saffron-deep: #f0995c;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.3); --shadow-md: 0 8px 28px rgba(0,0,0,.45); --shadow-lg: 0 20px 50px rgba(0,0,0,.55);
     }
   }
   :root[data-theme="dark"] {
-    --bg: #1a120d; --surface: #241912; --ink: #f6ead6; --muted: #c4ad92;
-    --line: #3d2c1f; --gold-soft: #3a2a14; --maroon: #e8a27a;
+    --bg: #17100b; --surface: #211711; --ink: #f4e9d8; --muted: #bfa98f;
+    --line: #3a2b1f; --gold-soft: #1d140e; --maroon: #eaa47c; --saffron-deep: #f0995c;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,.3); --shadow-md: 0 8px 28px rgba(0,0,0,.45); --shadow-lg: 0 20px 50px rgba(0,0,0,.55);
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font: 16px/1.65 Inter, system-ui, sans-serif;
+    margin: 0; background: var(--bg); color: var(--ink); overflow-x: hidden;
+    font: 16px/1.7 var(--sans);
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
   }
   img { max-width: 100%; display: block; }
-  a { color: var(--saffron-deep); }
-  h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; line-height: 1.15; margin: 0 0 .5em; }
-  h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); color: var(--maroon); }
+  a { color: var(--saffron-deep); text-underline-offset: 3px; transition: color var(--dur) var(--ease); }
+  a:hover { color: var(--saffron); }
+  :focus-visible { outline: 2px solid var(--saffron); outline-offset: 3px; border-radius: 6px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.12; margin: 0 0 .5em; letter-spacing: -.01em; }
+  h2 { font-size: clamp(2rem, 4vw, 2.75rem); color: var(--maroon); }
+  p { margin: 0 0 1em; }
   .kn { font-family: "Noto Serif Kannada", serif; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 760px) { .wrap { padding: 0 32px; } }
+
+  /* Kannada needs more vertical room and no tracking */
+  :lang(kn) body { line-height: 1.85; }
+  :lang(kn) h1, :lang(kn) h2, :lang(kn) h3 { line-height: 1.4; letter-spacing: 0; }
+  :lang(kn) h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+  :lang(kn) .card h3, :lang(kn) .info h3 { font-size: 1.25rem; }
+  :lang(kn) .eyebrow, :lang(kn) .si-l, :lang(kn) .slot .l, :lang(kn) .foot-grid h4 { letter-spacing: .3px; font-size: .85rem; text-transform: none; }
 
   /* Header */
   header.top {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 92%, transparent);
-    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
   }
-  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-  .brand strong { font-family: "Cormorant Garamond", serif; font-size: 1.35rem; letter-spacing: .5px; }
-  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
-  nav a { text-decoration: none; color: var(--ink); font-weight: 500; font-size: .95rem; }
-  nav a:hover { color: var(--saffron); }
-  .menu-btn { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; color: var(--ink); font-size: 1rem; }
-  @media (max-width: 760px) {
+  header.top.scrolled { border-bottom-color: var(--line); box-shadow: var(--shadow-sm); }
+  .top .wrap { display: flex; align-items: center; gap: 12px; min-height: 72px; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-right: auto; min-width: 0; text-decoration: none; color: var(--ink); }
+  .brand:hover { color: var(--ink); }
+  .brand svg { flex: none; transition: transform .6s var(--ease); }
+  .brand:hover svg { transform: rotate(-8deg) scale(1.05); }
+  .brand span { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+  .brand strong { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; letter-spacing: .3px; white-space: nowrap; }
+  .brand small { font-size: .68rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); }
+  :lang(kn) .brand strong { font-size: 1.2rem; letter-spacing: 0; }
+  :lang(kn) .brand small { letter-spacing: .4px; }
+  @media (max-width: 420px) {
+    .brand { gap: 8px; }
+    .brand svg { width: 30px; height: 30px; }
+    .brand strong { font-size: 1.1rem; }
+    .brand small { display: none; }
+  }
+  nav ul { list-style: none; display: flex; gap: 2px; margin: 0; padding: 0; }
+  nav a {
+    position: relative; display: block; padding: 8px 12px; text-decoration: none;
+    color: var(--ink); font-weight: 500; font-size: .93rem;
+  }
+  nav a::after {
+    content: ""; position: absolute; left: 12px; right: 12px; bottom: 4px; height: 1.5px;
+    background: var(--saffron); transform: scaleX(0); transform-origin: left;
+    transition: transform var(--dur) var(--ease);
+  }
+  nav a:hover::after, nav a.active::after { transform: scaleX(1); }
+  nav a.active { color: var(--saffron-deep); }
+
+  /* Language toggle */
+  .lang { display: inline-flex; flex: none; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+  .lang button {
+    appearance: none; border: 0; background: transparent; color: var(--muted); cursor: pointer;
+    font: 600 .8rem/1.3 var(--sans); padding: 5px 12px; border-radius: 999px;
+    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  }
+  @media (max-width: 420px) { .lang button { padding: 5px 9px; } }
+  .lang button:hover { color: var(--ink); }
+  .lang button[aria-pressed="true"] { background: var(--saffron); color: #fff; box-shadow: var(--shadow-sm); }
+
+  /* Soft cross-fade while the language switches */
+  main, footer, nav ul, .brand span { transition: opacity .2s var(--ease); }
+  .lang-swap main, .lang-swap footer, .lang-swap nav ul, .lang-swap .brand span { opacity: 0; }
+
+  .menu-btn {
+    display: none; flex: none; width: 42px; height: 42px; background: none; border: 1px solid var(--line);
+    border-radius: 10px; color: var(--ink); cursor: pointer; position: relative;
+    transition: background-color var(--dur) var(--ease);
+  }
+  .menu-btn:hover { background: var(--gold-soft); }
+  .menu-btn span, .menu-btn span::before, .menu-btn span::after {
+    position: absolute; left: 50%; width: 18px; height: 1.5px; background: currentColor; border-radius: 2px;
+    transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .menu-btn span { top: 50%; transform: translate(-50%, -50%); }
+  .menu-btn span::before, .menu-btn span::after { content: ""; left: 0; }
+  .menu-btn span::before { transform: translateY(-6px); }
+  .menu-btn span::after { transform: translateY(6px); }
+  .menu-btn[aria-expanded="true"] span { background: transparent; }
+  .menu-btn[aria-expanded="true"] span::before { transform: rotate(45deg); background: var(--ink); }
+  .menu-btn[aria-expanded="true"] span::after { transform: rotate(-45deg); background: var(--ink); }
+  @media (max-width: 900px) {
     .menu-btn { display: block; }
-    nav { position: absolute; top: 64px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--line); display: none; }
-    nav.open { display: block; }
+    nav {
+      position: absolute; top: 72px; left: 0; right: 0; background: var(--bg);
+      border-bottom: 1px solid var(--line); box-shadow: var(--shadow-md);
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), visibility 0s linear var(--dur);
+    }
+    nav.open { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
     nav ul { flex-direction: column; gap: 0; padding: 8px 16px 16px; }
-    nav li a { display: block; padding: 10px 0; }
+    nav a { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    nav li:last-child a { border-bottom: 0; }
+    nav a::after { display: none; }
   }
 
   /* Hero */
   .hero {
     position: relative; overflow: hidden; color: #fff8ea;
     background:
-      radial-gradient(1200px 500px at 70% 110%, rgba(255,200,90,.35), transparent 60%),
-      linear-gradient(160deg, #7a1d12 0%, #b14a12 55%, #d9661f 100%);
+      var(--dots),
+      radial-gradient(900px 520px at 78% 115%, rgba(255, 200, 110, .34), transparent 60%),
+      radial-gradient(700px 400px at 0% 0%, rgba(0, 0, 0, .2), transparent 60%),
+      linear-gradient(155deg, #5c170e 0%, #8e2f14 50%, #c25a1c 100%);
   }
-  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: center; padding-top: 72px; padding-bottom: 72px; }
-  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); margin-bottom: .2em; }
-  .hero .kn { font-size: clamp(1.1rem, 2.4vw, 1.5rem); opacity: .95; margin: 0 0 1rem; }
-  .hero p.lead { font-size: 1.1rem; max-width: 34em; opacity: .95; }
-  .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-  .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; }
-  .btn.primary { background: #fff3d6; color: #7a1d12; }
-  .btn.ghost { border: 1.5px solid rgba(255,243,214,.7); color: #fff3d6; }
-  .hero svg.temple { width: 100%; max-width: 420px; margin-left: auto; filter: drop-shadow(0 20px 30px rgba(0,0,0,.25)); }
-  @media (max-width: 760px) {
-    .hero .wrap { grid-template-columns: 1fr; padding-top: 48px; padding-bottom: 48px; }
-    .hero svg.temple { max-width: 260px; margin: 0 auto; }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; padding-top: 104px; padding-bottom: 168px; }
+  .hero-in { min-width: 0; }
+  .hero .eyebrow { color: #ffd38a; }
+  .hero h1 { font-size: clamp(2.6rem, 5.4vw, 4.4rem); font-weight: 700; margin-bottom: .15em; }
+  :lang(kn) .hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); line-height: 1.3; }
+  .hero .kn { font-size: clamp(1.05rem, 2.2vw, 1.4rem); opacity: .9; margin: 0 0 1.4rem; }
+  .hero p.lead { font-size: 1.12rem; max-width: 33em; opacity: .92; }
+  .hero-art { position: relative; justify-self: end; width: 100%; max-width: 440px; }
+  .hero svg.temple { width: 100%; filter: drop-shadow(0 24px 36px rgba(0,0,0,.28)); animation: float 7s ease-in-out infinite; }
+  .hero svg .spin { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite; }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .hero-in > * { opacity: 0; transform: translateY(14px); animation: rise .9s var(--ease) forwards; }
+  .hero-in > :nth-child(2) { animation-delay: .1s; }
+  .hero-in > :nth-child(3) { animation-delay: .2s; }
+  .hero-in > :nth-child(4) { animation-delay: .3s; }
+  .hero-in > :nth-child(5) { animation-delay: .4s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns: 1fr; gap: 24px; padding-top: 56px; padding-bottom: 120px; text-align: center; }
+    .hero p.lead { margin-inline: auto; }
+    .hero .btns { justify-content: center; }
+    .hero-art { order: -1; justify-self: center; max-width: 220px; }
   }
-  .border-band { height: 14px; background:
-      repeating-linear-gradient(90deg, var(--gold) 0 14px, transparent 14px 20px),
-      var(--maroon); opacity: .9; }
+  .border-band { position: absolute; left: 0; right: 0; bottom: 0; height: 12px; background:
+      repeating-linear-gradient(90deg, var(--gold) 0 12px, transparent 12px 18px), #4a130b; }
 
-  section { padding: 72px 0; }
+  /* Info strip that overlaps the hero */
+  .strip-wrap { position: relative; z-index: 2; margin-top: -72px; }
+  .strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; overflow: hidden;
+    background: var(--line); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-lg);
+    opacity: 0; transform: translateY(16px); animation: rise .9s var(--ease) .5s forwards;
+  }
+  .si { display: flex; align-items: center; gap: 14px; padding: 22px 24px; background: var(--surface); min-width: 0; }
+  .si-ic { flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+    background: color-mix(in srgb, var(--saffron) 12%, var(--surface)); color: var(--saffron-deep); }
+  .si-ic svg { width: 22px; height: 22px; }
+  .si-l { font-size: .72rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .si-v { font-weight: 600; font-size: .98rem; line-height: 1.35; }
+  .si-v a { color: inherit; text-decoration: none; }
+  .si-v a:hover { color: var(--saffron); }
+  @media (max-width: 960px) { .strip { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .si { padding: 14px 16px; } .si-ic { display: none; } .si-v { font-size: .9rem; } .si-v a { white-space: nowrap; } }
+  @media (max-width: 340px) { .strip { grid-template-columns: 1fr; } }
+
+  /* Buttons */
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px;
+    text-decoration: none; font-weight: 600; font-size: .95rem; border: 1.5px solid transparent;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0); transition-duration: .1s; }
+  .btn svg { width: 16px; height: 16px; transition: transform var(--dur) var(--ease); }
+  .btn:hover svg { transform: translateX(3px); }
+  .btn.light { background: #fff3d6; color: #6a1c12; box-shadow: 0 6px 18px rgba(0,0,0,.18); }
+  .btn.light:hover { background: #fff; color: #6a1c12; box-shadow: 0 10px 26px rgba(0,0,0,.24); }
+  .btn.ghost { border-color: rgba(255,243,214,.6); color: #fff3d6; }
+  .btn.ghost:hover { background: rgba(255,243,214,.12); border-color: #fff3d6; color: #fff; }
+  .btn.solid { background: var(--saffron); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn.solid:hover { background: var(--saffron-deep); color: #fff; box-shadow: var(--shadow-md); }
+  .btn.outline { border-color: var(--saffron); color: var(--saffron-deep); }
+  .btn.outline:hover { background: var(--saffron); color: #fff; }
+
+  /* Sections */
+  section { padding: 104px 0; }
+  @media (max-width: 760px) { section { padding: 72px 0; } }
   section.alt { background: var(--gold-soft); }
-  .eyebrow { text-transform: uppercase; letter-spacing: 2px; font-size: .78rem; font-weight: 600; color: var(--saffron); margin-bottom: 6px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    text-transform: uppercase; letter-spacing: 2.2px; font-size: .74rem; font-weight: 600;
+    color: var(--saffron); margin-bottom: 12px;
+  }
+  .eyebrow::before { content: ""; width: 24px; height: 1.5px; background: currentColor; }
+  .section-head { max-width: 640px; margin-bottom: 48px; }
+  .section-head p { color: var(--muted); font-size: 1.05rem; margin: 0; }
+  .section-head.center { text-align: center; margin-inline: auto; }
+  .section-head.center .eyebrow::after { content: ""; width: 24px; height: 1.5px; background: currentColor; }
+  @media (max-width: 860px) { .hero .eyebrow::after { content: ""; width: 24px; height: 1.5px; background: currentColor; } }
 
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  @media (max-width: 860px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+  .grid-2 { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid-2 > *, .grid-3 > * { min-width: 0; }
+  @media (max-width: 860px) { .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 32px; } }
 
-  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
-  .card h3 { font-size: 1.45rem; color: var(--maroon); }
-  .icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--gold-soft); color: var(--saffron-deep); margin-bottom: 14px; }
-  .icon svg { width: 24px; height: 24px; }
+  .card {
+    position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .45s var(--ease);
+  }
+  @media (max-width: 520px) { .card { padding: 24px; } }
+  .card.lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--gold) 45%, var(--line)); }
+  .card h3 { font-size: 1.5rem; color: var(--maroon); }
+  .card p:last-child { margin-bottom: 0; }
+  .card.lift::after {
+    content: ""; position: absolute; left: 32px; right: 32px; bottom: -1px; height: 2px; border-radius: 2px;
+    background: linear-gradient(90deg, var(--saffron), var(--gold)); transform: scaleX(0); transition: transform .5s var(--ease);
+  }
+  .card.lift:hover::after { transform: scaleX(1); }
+  .icon {
+    width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+    background: color-mix(in srgb, var(--saffron) 12%, var(--surface)); color: var(--saffron-deep); margin-bottom: 22px;
+    transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), transform .45s var(--ease);
+  }
+  .card.lift:hover .icon { background: var(--saffron); color: #fff; transform: scale(1.06); }
+  .icon svg { width: 26px; height: 26px; }
 
+  /* About */
+  .about-text p { color: color-mix(in srgb, var(--ink) 85%, var(--muted)); font-size: 1.04rem; }
+  .glance { overflow: hidden; padding-top: 36px; }
+  .glance::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--maroon), var(--saffron), var(--gold)); }
   .facts { list-style: none; padding: 0; margin: 0; }
-  .facts li { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
-  .facts li:last-child { border-bottom: 0; }
-  .facts b { min-width: 130px; color: var(--muted); font-weight: 500; }
+  .facts li { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .facts li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .facts b { flex: 0 0 120px; color: var(--muted); font-weight: 500; font-size: .9rem; }
+  @media (max-width: 480px) { .facts li { flex-direction: column; gap: 2px; } .facts b { flex: none; } }
 
-  .note { font-size: .88rem; color: var(--muted); margin-top: 14px; }
-
-  /* Timings */
-  .timings { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
-  .slot { text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 12px; }
-  .slot .t { font-family: "Cormorant Garamond", serif; font-size: 1.9rem; font-weight: 700; color: var(--saffron-deep); }
-
-  /* Gallery */
-  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
-  .gallery figure { margin: 0; aspect-ratio: 4/3; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--surface); position: relative; }
-  .gallery img { width: 100%; height: 100%; object-fit: cover; }
-  .gallery .ph { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 16px; color: var(--muted); font-size: .9rem;
-    background: repeating-linear-gradient(45deg, transparent 0 12px, color-mix(in srgb, var(--gold) 10%, transparent) 12px 24px); }
-  .gallery figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 8px 12px; font-size: .85rem; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.6)); }
+  /* Gallery mosaic */
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 16px; }
+  .gallery figure:first-child { grid-column: span 2; grid-row: span 2; }
+  @media (max-width: 760px) {
+    .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; gap: 12px; }
+    .gallery figure:first-child { grid-row: span 1; }
+    .gallery figure:last-child { grid-column: span 2; }
+  }
+  .gallery figure {
+    margin: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line);
+    background: var(--surface); position: relative; box-shadow: var(--shadow-sm);
+    transition: box-shadow .45s var(--ease), transform .45s var(--ease);
+  }
+  .gallery figure:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .7s var(--ease), transform 1.2s var(--ease); }
+  .gallery img.loaded { opacity: 1; }
+  .gallery figure:hover img { transform: scale(1.05); }
+  .gallery .ph {
+    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    text-align: center; padding: 16px; color: var(--muted); font-size: .85rem;
+    background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--gold) 12%, transparent), transparent 70%);
+  }
+  .gallery .ph svg { width: 44px; height: 44px; color: color-mix(in srgb, var(--gold) 70%, var(--surface)); }
+  .gallery figure:first-child .ph svg { width: 72px; height: 72px; }
+  .gallery figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 32px 16px 14px; font-size: .9rem; font-weight: 500; color: #fff;
+    background: linear-gradient(transparent, rgba(0,0,0,.65));
+    transform: translateY(6px); opacity: .9; transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  }
+  .gallery figure:hover figcaption { transform: none; opacity: 1; }
 
   /* Visit */
-  .map { width: 100%; aspect-ratio: 4/3; border: 0; border-radius: var(--radius); background: var(--surface); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px; align-items: stretch; }
+  .visit-grid > * { min-width: 0; }
+  @media (max-width: 860px) { .visit-grid { grid-template-columns: 1fr; } }
+  .info { padding: 0; overflow: hidden; }
+  .info-block { padding: 28px 32px; }
+  .info-block + .info-block { border-top: 1px solid var(--line); }
+  @media (max-width: 520px) { .info-block { padding: 22px; } }
+  .info h3 { font-size: 1.35rem; color: var(--maroon); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .info h3 svg { width: 20px; height: 20px; color: var(--saffron); flex: none; }
+  .timings { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .slot { text-align: center; padding: 16px 10px; border-radius: 12px; background: var(--gold-soft); border: 1px solid var(--line); }
+  .slot .l { font-size: .72rem; text-transform: uppercase; letter-spacing: 1.8px; color: var(--muted); font-weight: 600; }
+  .slot .t { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--saffron-deep); line-height: 1.2; margin-top: 2px; }
+  .note { font-size: .86rem; color: var(--muted); margin: 14px 0 0; }
+  .address { font-style: normal; line-height: 1.75; }
+  .info .btns { margin-top: 18px; }
+  .info .btn { padding: 11px 20px; font-size: .9rem; }
+  .info .facts li { padding: 10px 0; }
+  .map { display: block; width: 100%; height: 100%; min-height: 440px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-sm); }
+  @media (max-width: 860px) { .map { min-height: 320px; } }
 
-  footer { background: #3a120c; color: #f3e2c6; padding: 40px 0 28px; font-size: .92rem; }
-  footer a { color: #ffd38a; }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+  /* Booking call-to-action */
+  .cta-sec { padding-top: 0; }
+  .cta {
+    position: relative; overflow: hidden; border-radius: 24px; padding: 56px; color: #fff3d6;
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+    background: var(--dots), radial-gradient(600px 300px at 100% 100%, rgba(255,200,110,.3), transparent 60%), linear-gradient(135deg, #5c170e, #a33e16);
+    box-shadow: var(--shadow-lg);
+  }
+  .cta h2 { color: #fff8ea; margin-bottom: .3em; }
+  .cta p { opacity: .9; max-width: 36em; margin: 0; }
+  .cta .eyebrow { color: #ffd38a; }
+  .cta .btns { margin: 0; }
+  @media (max-width: 860px) { .cta { grid-template-columns: 1fr; padding: 40px 28px; } }
+
+  /* Footer */
+  footer { background: #2c0e08; color: #e9d7bb; padding: 64px 0 28px; font-size: .92rem; }
+  footer a { color: #ffd38a; text-decoration: none; }
+  footer a:hover { color: #fff; }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 32px; }
+  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-grid > :first-child { grid-column: 1 / -1; } }
+  .foot-grid h4 { margin: 0 0 12px; font-size: .74rem; letter-spacing: 2px; text-transform: uppercase; color: #c9a877; font-weight: 600; }
+  .foot-grid ul { list-style: none; margin: 0; padding: 0; line-height: 2; }
+  .foot-name { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: #fff3d6; display: block; margin-bottom: 8px; }
+  .foot-base { border-top: 1px solid rgba(233,215,187,.15); margin-top: 48px; padding-top: 20px; font-size: .84rem; color: #b79c7a; }
+
+  /* Scroll reveal (only when JS is running, so content is never hidden without it) */
+  .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+  .js .reveal.in { opacity: 1; transform: none; }
+  .js .reveal.d1 { transition-delay: .08s; }
+  .js .reveal.d2 { transition-delay: .16s; }
+  .js .reveal.d3 { transition-delay: .24s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js .reveal, .hero-in > *, .strip { opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body>
@@ -138,86 +382,120 @@
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#home" aria-label="Vishwakarma Dhama home">
-      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#d9661f"/><path d="M32 12l6 10h-12zM20 26h24v4H20zM22 32h20v18H22z" fill="#fff3d6"/><path d="M29 38h6v12h-6z" fill="#b14a12"/></svg>
-      <strong>Vishwakarma Dhama</strong>
+      <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#c8611f"/><path d="M32 12l6 10h-12zM20 26h24v4H20zM22 32h20v18H22z" fill="#fff3d6"/><path d="M29 38h6v12h-6z" fill="#8e2f14"/></svg>
+      <span><strong data-i18n="brand.name">Vishwakarma Dhama</strong><small data-i18n="brand.tag">DKVS · Est. 1972</small></span>
     </a>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-    <nav>
+    <nav id="site-nav">
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#activities">Activities</a></li>
-        <li><a href="#timings">Timings</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#visit">Visit</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#activities" data-i18n="nav.activities">Activities</a></li>
+        <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+        <li><a href="#timings" data-i18n="nav.timings">Timings</a></li>
+        <li><a href="#visit" data-i18n="nav.visit">Visit</a></li>
       </ul>
     </nav>
+    <div class="lang" role="group" aria-label="Language / ಭಾಷೆ">
+      <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" data-lang="kn" aria-pressed="false" lang="kn">ಕನ್ನಡ</button>
+    </div>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
   </div>
 </header>
 
 <main id="home">
   <section class="hero" style="padding:0">
     <div class="wrap">
-      <div>
-        <p class="eyebrow" style="color:#ffd38a">Dakshina Kannada Vishwa Brahmana Sangha</p>
-        <h1>Vishwakarma Dhama</h1>
-        <p class="kn">ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘ · ವಿಶ್ವಕರ್ಮ ಧಾಮ</p>
-        <p class="lead">A spiritual and community home for the Vishwakarma community in Satellite Town, Yelahanka, Bengaluru, serving devotees and families since the Sangha was registered in 1972.</p>
+      <div class="hero-in">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Dakshina Kannada Vishwa Brahmana Sangha</p>
+        <h1 data-i18n="hero.title">Vishwakarma Dhama</h1>
+        <p class="kn" data-i18n="hero.sub">ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘ · ವಿಶ್ವಕರ್ಮ ಧಾಮ</p>
+        <p class="lead" data-i18n="hero.lead">A spiritual and community home for the Vishwakarma community in Satellite Town, Yelahanka, Bengaluru, serving devotees and families since the Sangha was registered in 1972.</p>
         <div class="btns">
-          <a class="btn primary" href="https://maps.app.goo.gl/22VNYVkfDSSPagkU7" target="_blank" rel="noopener">Get directions</a>
-          <a class="btn ghost" href="#about">Learn more</a>
+          <a class="btn light" href="https://maps.app.goo.gl/22VNYVkfDSSPagkU7" target="_blank" rel="noopener"><span data-i18n="btn.directions">Get directions</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" href="#about" data-i18n="btn.more">Learn more</a>
         </div>
       </div>
-      <!-- Decorative gopura illustration -->
-      <svg class="temple" viewBox="0 0 400 420" role="img" aria-label="Illustration of a temple gopura">
-        <defs>
-          <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffe2a0"/><stop offset="1" stop-color="#f0b45a"/></linearGradient>
-          <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff1cf"/><stop offset="1" stop-color="#f6cf86"/></linearGradient>
-        </defs>
-        <circle cx="200" cy="170" r="150" fill="#ffd38a" opacity=".18"/>
-        <!-- kalasha -->
-        <path d="M200 18c-6 10-10 18-10 26h20c0-8-4-16-10-26z" fill="#ffd38a"/>
-        <rect x="186" y="44" width="28" height="10" rx="3" fill="#ffd38a"/>
-        <!-- tiers -->
-        <path d="M150 54h100l-8 40H158z" fill="url(#g1)"/>
-        <path d="M134 94h132l-8 46H142z" fill="url(#g2)"/>
-        <path d="M118 140h164l-8 52H126z" fill="url(#g1)"/>
-        <path d="M100 192h200l-8 58H108z" fill="url(#g2)"/>
-        <g fill="#b14a12" opacity=".55">
-          <rect x="172" y="66" width="10" height="18" rx="5"/><rect x="218" y="66" width="10" height="18" rx="5"/>
-          <rect x="160" y="108" width="10" height="20" rx="5"/><rect x="195" y="108" width="10" height="20" rx="5"/><rect x="230" y="108" width="10" height="20" rx="5"/>
-          <rect x="146" y="154" width="12" height="24" rx="6"/><rect x="194" y="154" width="12" height="24" rx="6"/><rect x="242" y="154" width="12" height="24" rx="6"/>
-          <rect x="130" y="208" width="12" height="28" rx="6"/><rect x="172" y="208" width="12" height="28" rx="6"/><rect x="216" y="208" width="12" height="28" rx="6"/><rect x="258" y="208" width="12" height="28" rx="6"/>
-        </g>
-        <!-- base -->
-        <rect x="84" y="250" width="232" height="120" fill="#fff1cf"/>
-        <rect x="76" y="242" width="248" height="12" fill="#ffd38a"/>
-        <path d="M172 370v-62a28 28 0 0 1 56 0v62z" fill="#7a1d12"/>
-        <rect x="104" y="270" width="18" height="100" fill="#f0b45a"/><rect x="278" y="270" width="18" height="100" fill="#f0b45a"/>
-        <rect x="60" y="370" width="280" height="14" rx="3" fill="#ffd38a"/>
-        <rect x="44" y="384" width="312" height="14" rx="3" fill="#f0b45a"/>
-        <!-- lamps -->
-        <g fill="#ffd38a"><path d="M140 300c-5 6-5 12 0 14 5-2 5-8 0-14z"/><path d="M260 300c-5 6-5 12 0 14 5-2 5-8 0-14z"/></g>
-      </svg>
+      <div class="hero-art">
+        <!-- Decorative gopura illustration -->
+        <svg class="temple" viewBox="0 0 400 420" role="img" aria-label="Illustration of a temple gopura">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffe2a0"/><stop offset="1" stop-color="#f0b45a"/></linearGradient>
+            <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff1cf"/><stop offset="1" stop-color="#f6cf86"/></linearGradient>
+          </defs>
+          <circle cx="200" cy="190" r="150" fill="#ffd38a" opacity=".14"/>
+          <g class="spin" fill="none" stroke="#ffd38a">
+            <circle cx="200" cy="190" r="178" stroke-width="1.2" stroke-dasharray="2 9" opacity=".55"/>
+            <circle cx="200" cy="190" r="194" stroke-width="1" stroke-dasharray="18 10" opacity=".25"/>
+          </g>
+          <!-- kalasha -->
+          <path d="M200 18c-6 10-10 18-10 26h20c0-8-4-16-10-26z" fill="#ffd38a"/>
+          <rect x="186" y="44" width="28" height="10" rx="3" fill="#ffd38a"/>
+          <!-- tiers -->
+          <path d="M150 54h100l-8 40H158z" fill="url(#g1)"/>
+          <path d="M134 94h132l-8 46H142z" fill="url(#g2)"/>
+          <path d="M118 140h164l-8 52H126z" fill="url(#g1)"/>
+          <path d="M100 192h200l-8 58H108z" fill="url(#g2)"/>
+          <g fill="#b14a12" opacity=".55">
+            <rect x="172" y="66" width="10" height="18" rx="5"/><rect x="218" y="66" width="10" height="18" rx="5"/>
+            <rect x="160" y="108" width="10" height="20" rx="5"/><rect x="195" y="108" width="10" height="20" rx="5"/><rect x="230" y="108" width="10" height="20" rx="5"/>
+            <rect x="146" y="154" width="12" height="24" rx="6"/><rect x="194" y="154" width="12" height="24" rx="6"/><rect x="242" y="154" width="12" height="24" rx="6"/>
+            <rect x="130" y="208" width="12" height="28" rx="6"/><rect x="172" y="208" width="12" height="28" rx="6"/><rect x="216" y="208" width="12" height="28" rx="6"/><rect x="258" y="208" width="12" height="28" rx="6"/>
+          </g>
+          <!-- base -->
+          <rect x="84" y="250" width="232" height="120" fill="#fff1cf"/>
+          <rect x="76" y="242" width="248" height="12" fill="#ffd38a"/>
+          <path d="M172 370v-62a28 28 0 0 1 56 0v62z" fill="#7a1d12"/>
+          <rect x="104" y="270" width="18" height="100" fill="#f0b45a"/><rect x="278" y="270" width="18" height="100" fill="#f0b45a"/>
+          <rect x="60" y="370" width="280" height="14" rx="3" fill="#ffd38a"/>
+          <rect x="44" y="384" width="312" height="14" rx="3" fill="#f0b45a"/>
+          <!-- lamps -->
+          <g fill="#ffd38a"><path d="M140 300c-5 6-5 12 0 14 5-2 5-8 0-14z"/><path d="M260 300c-5 6-5 12 0 14 5-2 5-8 0-14z"/></g>
+        </svg>
+      </div>
     </div>
     <div class="border-band"></div>
   </section>
 
+  <div class="strip-wrap">
+    <div class="wrap">
+      <div class="strip">
+        <div class="si">
+          <div class="si-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><div class="si-l" data-i18n="strip.darshan">Darshan</div><div class="si-v" data-i18n="strip.darshanV">6–9 AM · 5–8 PM</div></div>
+        </div>
+        <div class="si">
+          <div class="si-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+          <div><div class="si-l" data-i18n="strip.where">Location</div><div class="si-v" data-i18n="strip.whereV">Satellite Town, Yelahanka</div></div>
+        </div>
+        <div class="si">
+          <div class="si-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+          <div><div class="si-l" data-i18n="strip.call">Office</div><div class="si-v"><a href="tel:+918022714294">080 2271 4294</a></div></div>
+        </div>
+        <div class="si">
+          <div class="si-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></div>
+          <div><div class="si-l" data-i18n="strip.since">Serving since</div><div class="si-v" data-i18n="strip.sinceV">1972</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <section id="about">
     <div class="wrap grid-2">
-      <div>
-        <p class="eyebrow">About the Sangha</p>
-        <h2>Rooted in Dakshina Kannada, at home in Bengaluru</h2>
-        <p>The <strong>Dakshina Kannada Vishwa Brahmana Sangha (DKVS)</strong> brings together Vishwa Brahmana (Vishwakarma) families from coastal Karnataka who live in and around Bengaluru. It is a registered society under the Karnataka Societies Registration Act, 1960.</p>
-        <p>Its home, <strong>Vishwakarma Dhama</strong>, stands on land allotted to the Sangha by the Karnataka Housing Board in Satellite Town, Yelahanka. The land was given so the Sangha could build a <em>Samudaya Bhavana</em> (community hall), run a students' hostel and a school of sculpture. Today all of the Sangha's programmes are held here.</p>
+      <div class="about-text reveal">
+        <p class="eyebrow" data-i18n="about.eyebrow">About the Sangha</p>
+        <h2 data-i18n="about.title">Rooted in Dakshina Kannada, at home in Bengaluru</h2>
+        <p data-i18n="about.p1">The <strong>Dakshina Kannada Vishwa Brahmana Sangha (DKVS)</strong> brings together Vishwa Brahmana (Vishwakarma) families from coastal Karnataka who live in and around Bengaluru. It is a registered society under the Karnataka Societies Registration Act, 1960.</p>
+        <p data-i18n="about.p2">Its home, <strong>Vishwakarma Dhama</strong>, stands on land allotted to the Sangha by the Karnataka Housing Board in Satellite Town, Yelahanka. The land was given so the Sangha could build a <em>Samudaya Bhavana</em> (community hall), run a students' hostel and a school of sculpture. Today all of the Sangha's programmes are held here.</p>
       </div>
-      <div class="card">
-        <h3>At a glance</h3>
+      <div class="card glance reveal d1">
+        <h3 data-i18n="glance.title">At a glance</h3>
         <ul class="facts">
-          <li><b>Organisation</b><span>Dakshina Kannada Vishwa Brahmana Sangha (DKVS)</span></li>
-          <li><b>Established</b><span>Registered 15 May 1972</span></li>
-          <li><b>Registration</b><span>No. 50/72-73</span></li>
-          <li><b>Campus</b><span>Vishwakarma Dhama, CA-21, Sector A, Satellite Town, Yelahanka</span></li>
-          <li><b>Dedicated to</b><span>Lord Vishwakarma, the divine architect</span></li>
+          <li><b data-i18n="glance.org">Organisation</b><span data-i18n="glance.orgV">Dakshina Kannada Vishwa Brahmana Sangha (DKVS)</span></li>
+          <li><b data-i18n="glance.est">Established</b><span data-i18n="glance.estV">Registered 15 May 1972</span></li>
+          <li><b data-i18n="glance.reg">Registration</b><span data-i18n="glance.regV">No. 50/72-73</span></li>
+          <li><b data-i18n="glance.campus">Campus</b><span data-i18n="glance.campusV">Vishwakarma Dhama, CA-21, Sector A, Satellite Town, Yelahanka</span></li>
+          <li><b data-i18n="glance.ded">Dedicated to</b><span data-i18n="glance.dedV">Lord Vishwakarma, the divine architect</span></li>
         </ul>
       </div>
     </div>
@@ -225,122 +503,328 @@
 
   <section id="activities" class="alt">
     <div class="wrap">
-      <p class="eyebrow">What happens here</p>
-      <h2>Worship, learning and community</h2>
-      <div class="grid-3" style="margin-top:24px">
-        <div class="card">
+      <div class="section-head center reveal">
+        <p class="eyebrow" data-i18n="act.eyebrow">What happens here</p>
+        <h2 data-i18n="act.title">Worship, learning and community</h2>
+        <p data-i18n="act.lead">Vishwakarma Dhama is the centre of the Sangha's religious, cultural and educational life.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card lift reveal">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-2 3-3 5-3 7a3 3 0 0 0 6 0c0-2-1-4-3-7z"/><path d="M5 21h14M7 21v-4h10v4"/></svg></div>
-          <h3>Vishwakarma Pooje</h3>
-          <p>The Sangha holds Vishwakarma Pooje every year, honouring Lord Vishwakarma, the patron of artisans, architects and craftspeople.</p>
+          <h3 data-i18n="act.pooje">Vishwakarma Pooje</h3>
+          <p data-i18n="act.poojeP">The Sangha holds Vishwakarma Pooje every year, honouring Lord Vishwakarma, the patron of artisans, architects and craftspeople.</p>
         </div>
-        <div class="card">
+        <div class="card lift reveal d1">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-6 9 6"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></div>
-          <h3>Samudaya Bhavana</h3>
-          <p>A community hall and lawn for weddings, upanayana, naming ceremonies and family functions. Listings mention room for about 300 guests, vegetarian catering, AC rooms and parking.</p>
+          <h3 data-i18n="act.hall">Samudaya Bhavana</h3>
+          <p data-i18n="act.hallP">A community hall and lawn for weddings, upanayana, naming ceremonies and family functions. Listings mention room for about 300 guests, vegetarian catering, AC rooms and parking.</p>
         </div>
-        <div class="card">
+        <div class="card lift reveal d2">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 8l10-4 10 4-10 4z"/><path d="M6 10v5c3 2 9 2 12 0v-5"/></svg></div>
-          <h3>Education &amp; heritage</h3>
-          <p>The campus was set up to support a students' hostel and a school of sculpture, carrying forward the Vishwakarma tradition of stone, wood and metal craft.</p>
+          <h3 data-i18n="act.edu">Education &amp; heritage</h3>
+          <p data-i18n="act.eduP">The campus was set up to support a students' hostel and a school of sculpture, carrying forward the Vishwakarma tradition of stone, wood and metal craft.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="timings">
-    <div class="wrap grid-2">
-      <div>
-        <p class="eyebrow">Darshan</p>
-        <h2>Timings</h2>
-        <div class="timings">
-          <div class="slot"><div>Morning</div><div class="t">6 – 9 AM</div></div>
-          <div class="slot"><div>Evening</div><div class="t">5 – 8 PM</div></div>
-        </div>
-        <p class="note">Open daily. Timings may change on festival days. Please call the office to confirm before visiting.</p>
-      </div>
-      <div class="card">
-        <h3>Book the hall</h3>
-        <p>To book Vishwakarma Dhama for a function, or to ask about poojas and Sangha membership, please contact the office.</p>
-        <ul class="facts">
-          <li><b>Phone</b><span><a href="tel:+918022714294">080 2271 4294</a></span></li>
-          <li><b>Website</b><span><a href="http://www.dkvsangha.com" target="_blank" rel="noopener">www.dkvsangha.com</a></span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery" class="alt">
+  <section id="gallery">
     <div class="wrap">
-      <p class="eyebrow">Gallery</p>
-      <h2>Moments at Vishwakarma Dhama</h2>
+      <div class="section-head center reveal">
+        <p class="eyebrow" data-i18n="gal.eyebrow">Gallery</p>
+        <h2 data-i18n="gal.title">Moments at Vishwakarma Dhama</h2>
+        <p data-i18n="gal.lead">The temple, its festivals and the community that gathers here.</p>
+      </div>
       <div class="gallery" id="gallery-grid"></div>
     </div>
   </section>
 
-  <section id="visit">
-    <div class="wrap grid-2">
-      <div>
-        <p class="eyebrow">Visit us</p>
-        <h2>How to reach</h2>
-        <p><strong>Vishwakarma Dhama</strong><br>
-          Dakshina Kannada Vishwa Brahmana Sangha<br>
-          CA-21, Sector A,<br>
-          Satellite Town, Yelahanka,<br>
-          Bengaluru, Karnataka 560064</p>
+  <section id="visit" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="visit.eyebrow">Visit us</p>
+        <h2 data-i18n="visit.title">Plan your visit</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="card info reveal">
+          <div class="info-block" id="timings">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="time.title">Darshan timings</span></h3>
+            <div class="timings">
+              <div class="slot"><div class="l" data-i18n="time.am">Morning</div><div class="t" data-i18n="time.amV">6 – 9 AM</div></div>
+              <div class="slot"><div class="l" data-i18n="time.pm">Evening</div><div class="t" data-i18n="time.pmV">5 – 8 PM</div></div>
+            </div>
+            <p class="note" data-i18n="time.note">Open daily. Timings may change on festival days. Please call the office to confirm before visiting.</p>
+          </div>
+          <div class="info-block">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span data-i18n="visit.addrT">Address</span></h3>
+            <address class="address" data-i18n="visit.addr">Vishwakarma Dhama, Dakshina Kannada Vishwa Brahmana Sangha<br>
+              CA-21, Sector A, Satellite Town, Yelahanka,<br>
+              Bengaluru, Karnataka 560064</address>
+            <div class="btns">
+              <a class="btn solid" href="https://maps.app.goo.gl/22VNYVkfDSSPagkU7" target="_blank" rel="noopener"><span data-i18n="btn.maps">Open in Google Maps</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <a class="btn outline" href="tel:+918022714294" data-i18n="btn.call">Call the office</a>
+            </div>
+          </div>
+          <div class="info-block">
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span data-i18n="foot.contact">Contact</span></h3>
+            <ul class="facts">
+              <li><b data-i18n="book.phone">Phone</b><span><a href="tel:+918022714294">080 2271 4294</a></span></li>
+              <li><b data-i18n="book.web">Website</b><span><a href="http://www.dkvsangha.com" target="_blank" rel="noopener">www.dkvsangha.com</a></span></li>
+            </ul>
+          </div>
+        </div>
+        <iframe class="map reveal d1" title="Map to Vishwakarma Dhama" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Dakshina+Kannada+Vishwa+Brahmana+Sangha,+Satellite+Town,+Yelahanka,+Bengaluru,+Karnataka+560064&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-sec alt">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div>
+          <p class="eyebrow" data-i18n="book.title">Book the hall</p>
+          <h2 data-i18n="cta.title">Host your family occasion at Vishwakarma Dhama</h2>
+          <p data-i18n="book.p">To book Vishwakarma Dhama for a function, or to ask about poojas and Sangha membership, please contact the office.</p>
+        </div>
         <div class="btns">
-          <a class="btn primary" style="background:var(--saffron);color:#fff" href="https://maps.app.goo.gl/22VNYVkfDSSPagkU7" target="_blank" rel="noopener">Open in Google Maps</a>
-          <a class="btn" style="border:1.5px solid var(--saffron);color:var(--saffron-deep)" href="tel:+918022714294">Call the office</a>
+          <a class="btn light" href="tel:+918022714294"><span data-i18n="cta.call">Call to book</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" href="http://www.dkvsangha.com" target="_blank" rel="noopener">dkvsangha.com</a>
         </div>
       </div>
-      <iframe class="map" title="Map to Vishwakarma Dhama" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Dakshina+Kannada+Vishwa+Brahmana+Sangha,+Satellite+Town,+Yelahanka,+Bengaluru,+Karnataka+560064&output=embed"></iframe>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div>
-      <strong style="font-family:'Cormorant Garamond',serif;font-size:1.3rem">Vishwakarma Dhama</strong><br>
-      Dakshina Kannada Vishwa Brahmana Sangha (Regd.), Satellite Town, Yelahanka, Bengaluru, Karnataka 560064
+    <div class="foot-grid">
+      <div>
+        <span class="foot-name" data-i18n="brand.name">Vishwakarma Dhama</span>
+        <span data-i18n="foot.addr">Dakshina Kannada Vishwa Brahmana Sangha (Regd.)<br>
+        CA-21, Sector A, Satellite Town, Yelahanka,<br>
+        Bengaluru, Karnataka 560064</span>
+      </div>
+      <div>
+        <h4 data-i18n="foot.explore">Explore</h4>
+        <ul>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#activities" data-i18n="nav.activities">Activities</a></li>
+          <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="#visit" data-i18n="nav.visit">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.contact">Contact</h4>
+        <ul>
+          <li><a href="tel:+918022714294">080 2271 4294</a></li>
+          <li><a href="http://www.dkvsangha.com" target="_blank" rel="noopener">www.dkvsangha.com</a></li>
+          <li><a href="https://maps.app.goo.gl/22VNYVkfDSSPagkU7" target="_blank" rel="noopener" data-i18n="foot.dir">Directions</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <a href="tel:+918022714294">080 2271 4294</a> ·
-      <a href="https://maps.app.goo.gl/22VNYVkfDSSPagkU7" target="_blank" rel="noopener">Directions</a><br>
-      © <span id="yr"></span> DKVS
-    </div>
+    <div class="foot-base">© <span id="yr"></span> <span data-i18n="foot.rights">Dakshina Kannada Vishwa Brahmana Sangha. All rights reserved.</span></div>
   </div>
 </footer>
 
 <script>
+  // Translations. English is read from the page itself; Kannada lives here.
+  const KN = {
+    'meta.title': 'ವಿಶ್ವಕರ್ಮ ಧಾಮ · DKVS',
+    'meta.desc': 'ಬೆಂಗಳೂರಿನ ಯಲಹಂಕ ಉಪನಗರದಲ್ಲಿರುವ ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘದ (DKVS) ನೆಲೆ, ವಿಶ್ವಕರ್ಮ ಧಾಮ.',
+    'ui.open': 'ಮೆನು ತೆರೆಯಿರಿ',
+    'ui.close': 'ಮೆನು ಮುಚ್ಚಿರಿ',
+    'brand.name': 'ವಿಶ್ವಕರ್ಮ ಧಾಮ',
+    'brand.tag': 'DKVS · ಸ್ಥಾಪನೆ 1972',
+    'nav.about': 'ನಮ್ಮ ಬಗ್ಗೆ',
+    'nav.activities': 'ಚಟುವಟಿಕೆಗಳು',
+    'nav.timings': 'ಸಮಯ',
+    'nav.gallery': 'ಚಿತ್ರಗಳು',
+    'nav.visit': 'ಭೇಟಿ ನೀಡಿ',
+    'hero.eyebrow': 'ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘ',
+    'hero.title': 'ವಿಶ್ವಕರ್ಮ ಧಾಮ',
+    'hero.sub': 'Dakshina Kannada Vishwa Brahmana Sangha · Vishwakarma Dhama',
+    'hero.lead': 'ಬೆಂಗಳೂರಿನ ಯಲಹಂಕ ಉಪನಗರದಲ್ಲಿರುವ ವಿಶ್ವಕರ್ಮ ಸಮುದಾಯದ ಆಧ್ಯಾತ್ಮಿಕ ಮತ್ತು ಸಾಮುದಾಯಿಕ ಕೇಂದ್ರ. 1972ರಲ್ಲಿ ಸಂಘ ನೋಂದಣಿಯಾದಂದಿನಿಂದ ಭಕ್ತರು ಮತ್ತು ಕುಟುಂಬಗಳ ಸೇವೆಯಲ್ಲಿದೆ.',
+    'btn.directions': 'ದಾರಿ ತಿಳಿಯಿರಿ',
+    'btn.more': 'ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ',
+    'btn.maps': 'ಗೂಗಲ್ ಮ್ಯಾಪ್ಸ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ',
+    'btn.call': 'ಕಚೇರಿಗೆ ಕರೆ ಮಾಡಿ',
+    'strip.darshan': 'ದರ್ಶನ',
+    'strip.darshanV': 'ಬೆಳಿಗ್ಗೆ 6–9 · ಸಂಜೆ 5–8',
+    'strip.where': 'ಸ್ಥಳ',
+    'strip.whereV': 'ಯಲಹಂಕ ಉಪನಗರ',
+    'strip.call': 'ಕಚೇರಿ',
+    'strip.since': 'ಸೇವೆಯಲ್ಲಿ',
+    'strip.sinceV': '1972ರಿಂದ',
+    'about.eyebrow': 'ಸಂಘದ ಬಗ್ಗೆ',
+    'about.title': 'ದಕ್ಷಿಣ ಕನ್ನಡದ ಬೇರುಗಳು, ಬೆಂಗಳೂರಿನಲ್ಲಿ ನೆಲೆ',
+    'about.p1': '<strong>ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘ (DKVS)</strong> ಬೆಂಗಳೂರು ಮತ್ತು ಸುತ್ತಮುತ್ತ ನೆಲೆಸಿರುವ ಕರಾವಳಿ ಕರ್ನಾಟಕದ ವಿಶ್ವಬ್ರಾಹ್ಮಣ (ವಿಶ್ವಕರ್ಮ) ಕುಟುಂಬಗಳನ್ನು ಒಗ್ಗೂಡಿಸುತ್ತದೆ. ಇದು ಕರ್ನಾಟಕ ಸಂಘಗಳ ನೋಂದಣಿ ಕಾಯ್ದೆ, 1960ರ ಅಡಿಯಲ್ಲಿ ನೋಂದಾಯಿತ ಸಂಸ್ಥೆ.',
+    'about.p2': 'ಸಂಘದ ನೆಲೆಯಾದ <strong>ವಿಶ್ವಕರ್ಮ ಧಾಮ</strong>, ಯಲಹಂಕ ಉಪನಗರದಲ್ಲಿ ಕರ್ನಾಟಕ ಗೃಹ ಮಂಡಳಿಯು ಸಂಘಕ್ಕೆ ಮಂಜೂರು ಮಾಡಿದ ನಿವೇಶನದಲ್ಲಿದೆ. <em>ಸಮುದಾಯ ಭವನ</em> ನಿರ್ಮಿಸಲು, ವಿದ್ಯಾರ್ಥಿ ನಿಲಯ ಮತ್ತು ಶಿಲ್ಪಕಲಾ ಶಾಲೆಯನ್ನು ನಡೆಸಲು ಈ ನಿವೇಶನವನ್ನು ನೀಡಲಾಯಿತು. ಇಂದು ಸಂಘದ ಎಲ್ಲಾ ಕಾರ್ಯಕ್ರಮಗಳು ಇಲ್ಲಿಯೇ ನಡೆಯುತ್ತವೆ.',
+    'glance.title': 'ಸಂಕ್ಷಿಪ್ತ ಮಾಹಿತಿ',
+    'glance.org': 'ಸಂಸ್ಥೆ',
+    'glance.orgV': 'ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘ (DKVS)',
+    'glance.est': 'ಸ್ಥಾಪನೆ',
+    'glance.estV': '15 ಮೇ 1972ರಂದು ನೋಂದಣಿ',
+    'glance.reg': 'ನೋಂದಣಿ ಸಂಖ್ಯೆ',
+    'glance.regV': '50/72-73',
+    'glance.campus': 'ಆವರಣ',
+    'glance.campusV': 'ವಿಶ್ವಕರ್ಮ ಧಾಮ, CA-21, ಸೆಕ್ಟರ್ A, ಯಲಹಂಕ ಉಪನಗರ',
+    'glance.ded': 'ಸಮರ್ಪಣೆ',
+    'glance.dedV': 'ದೈವಿಕ ಶಿಲ್ಪಿ ಭಗವಾನ್ ವಿಶ್ವಕರ್ಮ',
+    'act.eyebrow': 'ಇಲ್ಲಿ ನಡೆಯುವುದು',
+    'act.title': 'ಪೂಜೆ, ಕಲಿಕೆ ಮತ್ತು ಸಮುದಾಯ',
+    'act.lead': 'ವಿಶ್ವಕರ್ಮ ಧಾಮವು ಸಂಘದ ಧಾರ್ಮಿಕ, ಸಾಂಸ್ಕೃತಿಕ ಮತ್ತು ಶೈಕ್ಷಣಿಕ ಚಟುವಟಿಕೆಗಳ ಕೇಂದ್ರ.',
+    'act.pooje': 'ವಿಶ್ವಕರ್ಮ ಪೂಜೆ',
+    'act.poojeP': 'ಕುಶಲಕರ್ಮಿಗಳು, ವಾಸ್ತುಶಿಲ್ಪಿಗಳು ಮತ್ತು ಕರಕುಶಲಿಗಳ ಆರಾಧ್ಯ ದೈವವಾದ ಭಗವಾನ್ ವಿಶ್ವಕರ್ಮರನ್ನು ಗೌರವಿಸಿ ಸಂಘವು ಪ್ರತಿವರ್ಷ ವಿಶ್ವಕರ್ಮ ಪೂಜೆಯನ್ನು ನಡೆಸುತ್ತದೆ.',
+    'act.hall': 'ಸಮುದಾಯ ಭವನ',
+    'act.hallP': 'ಮದುವೆ, ಉಪನಯನ, ನಾಮಕರಣ ಮತ್ತು ಕೌಟುಂಬಿಕ ಸಮಾರಂಭಗಳಿಗಾಗಿ ಸಭಾಂಗಣ ಮತ್ತು ಹುಲ್ಲುಹಾಸು. ಸುಮಾರು 300 ಅತಿಥಿಗಳಿಗೆ ಸ್ಥಳಾವಕಾಶ, ಸಸ್ಯಾಹಾರಿ ಅಡುಗೆ ವ್ಯವಸ್ಥೆ, ಹವಾನಿಯಂತ್ರಿತ ಕೊಠಡಿಗಳು ಮತ್ತು ವಾಹನ ನಿಲುಗಡೆ ಇದೆ ಎಂದು ಆನ್‌ಲೈನ್ ಮಾಹಿತಿಗಳು ತಿಳಿಸುತ್ತವೆ.',
+    'act.edu': 'ಶಿಕ್ಷಣ ಮತ್ತು ಪರಂಪರೆ',
+    'act.eduP': 'ಕಲ್ಲು, ಮರ ಮತ್ತು ಲೋಹದ ವಿಶ್ವಕರ್ಮ ಕರಕುಶಲ ಪರಂಪರೆಯನ್ನು ಮುಂದುವರಿಸುತ್ತಾ, ವಿದ್ಯಾರ್ಥಿ ನಿಲಯ ಮತ್ತು ಶಿಲ್ಪಕಲಾ ಶಾಲೆಗೆ ನೆರವಾಗಲು ಈ ಆವರಣವನ್ನು ಸ್ಥಾಪಿಸಲಾಯಿತು.',
+    'time.title': 'ದರ್ಶನದ ಸಮಯ',
+    'time.am': 'ಬೆಳಿಗ್ಗೆ',
+    'time.amV': '6 – 9 ಗಂಟೆ',
+    'time.pm': 'ಸಂಜೆ',
+    'time.pmV': '5 – 8 ಗಂಟೆ',
+    'time.note': 'ಪ್ರತಿದಿನ ತೆರೆದಿರುತ್ತದೆ. ಹಬ್ಬದ ದಿನಗಳಲ್ಲಿ ಸಮಯ ಬದಲಾಗಬಹುದು. ಭೇಟಿ ನೀಡುವ ಮೊದಲು ದಯವಿಟ್ಟು ಕಚೇರಿಗೆ ಕರೆ ಮಾಡಿ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ.',
+    'book.title': 'ಸಭಾಂಗಣ ಕಾಯ್ದಿರಿಸಿ',
+    'book.p': 'ಸಮಾರಂಭಕ್ಕಾಗಿ ವಿಶ್ವಕರ್ಮ ಧಾಮವನ್ನು ಕಾಯ್ದಿರಿಸಲು ಅಥವಾ ಪೂಜೆಗಳು ಮತ್ತು ಸಂಘದ ಸದಸ್ಯತ್ವದ ಬಗ್ಗೆ ವಿಚಾರಿಸಲು ದಯವಿಟ್ಟು ಕಚೇರಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.',
+    'book.phone': 'ದೂರವಾಣಿ',
+    'book.web': 'ಜಾಲತಾಣ',
+    'cta.title': 'ನಿಮ್ಮ ಕುಟುಂಬದ ಶುಭ ಸಮಾರಂಭಗಳನ್ನು ವಿಶ್ವಕರ್ಮ ಧಾಮದಲ್ಲಿ ಆಚರಿಸಿ',
+    'cta.call': 'ಕಾಯ್ದಿರಿಸಲು ಕರೆ ಮಾಡಿ',
+    'gal.eyebrow': 'ಚಿತ್ರಗಳು',
+    'gal.title': 'ವಿಶ್ವಕರ್ಮ ಧಾಮದ ಕ್ಷಣಗಳು',
+    'gal.lead': 'ದೇವಾಲಯ, ಅದರ ಹಬ್ಬಗಳು ಮತ್ತು ಇಲ್ಲಿ ಸೇರುವ ಸಮುದಾಯ.',
+    'gal.soon': 'ಚಿತ್ರ ಶೀಘ್ರದಲ್ಲೇ',
+    'visit.eyebrow': 'ಭೇಟಿ ನೀಡಿ',
+    'visit.title': 'ನಿಮ್ಮ ಭೇಟಿಗೆ ಮಾಹಿತಿ',
+    'visit.addrT': 'ವಿಳಾಸ',
+    'visit.addr': 'ವಿಶ್ವಕರ್ಮ ಧಾಮ, ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘ<br>CA-21, ಸೆಕ್ಟರ್ A, ಯಲಹಂಕ ಉಪನಗರ,<br>ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ 560064',
+    'foot.addr': 'ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘ (ನೋಂ.)<br>CA-21, ಸೆಕ್ಟರ್ A, ಯಲಹಂಕ ಉಪನಗರ,<br>ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ 560064',
+    'foot.explore': 'ವಿಭಾಗಗಳು',
+    'foot.contact': 'ಸಂಪರ್ಕ',
+    'foot.dir': 'ದಾರಿ',
+    'foot.rights': 'ದಕ್ಷಿಣ ಕನ್ನಡ ವಿಶ್ವಬ್ರಾಹ್ಮಣ ಸಂಘ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.',
+  };
+  const metaDesc = document.querySelector('meta[name="description"]');
+  const i18nNodes = document.querySelectorAll('[data-i18n]');
+  const EN = {
+    'meta.title': document.title, 'meta.desc': metaDesc.content,
+    'ui.open': 'Open menu', 'ui.close': 'Close menu', 'gal.soon': 'Photo coming soon',
+  };
+  i18nNodes.forEach(el => { if (!(el.dataset.i18n in EN)) EN[el.dataset.i18n] = el.innerHTML; });
+  let lang = 'en';
+  const t = key => (lang === 'kn' && KN[key]) || EN[key];
+
   // Mobile menu
   const btn = document.querySelector('.menu-btn'), nav = document.querySelector('nav');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+  const setMenu = open => {
+    nav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', open);
-  });
-  nav.addEventListener('click', e => { if (e.target.tagName === 'A') nav.classList.remove('open'); });
+    btn.setAttribute('aria-label', t(open ? 'ui.close' : 'ui.open'));
+  };
+  btn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.addEventListener('click', e => { if (e.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
   document.getElementById('yr').textContent = new Date().getFullYear();
 
+  // Header shadow once the page is scrolled
+  const header = document.querySelector('header.top');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
   // Gallery: drop photos into images/gallery/ named 1.jpg, 2.jpg, ... and edit captions here.
+  // The first photo is shown large, so make it the best one.
   const photos = [
-    { src: 'images/gallery/1.jpg', caption: 'Temple entrance' },
-    { src: 'images/gallery/2.jpg', caption: 'Lord Vishwakarma' },
-    { src: 'images/gallery/3.jpg', caption: 'Vishwakarma Pooje' },
-    { src: 'images/gallery/4.jpg', caption: 'Samudaya Bhavana' },
-    { src: 'images/gallery/5.jpg', caption: 'Festival celebrations' },
-    { src: 'images/gallery/6.jpg', caption: 'Community gathering' },
+    { src: 'images/gallery/1.jpg', en: 'Temple entrance', kn: 'ದೇವಾಲಯದ ಪ್ರವೇಶ ದ್ವಾರ' },
+    { src: 'images/gallery/2.jpg', en: 'Lord Vishwakarma', kn: 'ಭಗವಾನ್ ವಿಶ್ವಕರ್ಮ' },
+    { src: 'images/gallery/3.jpg', en: 'Vishwakarma Pooje', kn: 'ವಿಶ್ವಕರ್ಮ ಪೂಜೆ' },
+    { src: 'images/gallery/4.jpg', en: 'Samudaya Bhavana', kn: 'ಸಮುದಾಯ ಭವನ' },
+    { src: 'images/gallery/5.jpg', en: 'Festival celebrations', kn: 'ಹಬ್ಬದ ಆಚರಣೆಗಳು' },
+    { src: 'images/gallery/6.jpg', en: 'Community gathering', kn: 'ಸಮುದಾಯ ಸಮಾವೇಶ' },
   ];
+  const phIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>';
   const grid = document.getElementById('gallery-grid');
-  photos.forEach(p => {
+  const figs = photos.map((p, i) => {
     const fig = document.createElement('figure');
-    fig.innerHTML = `<div class="ph">Photo coming soon<br>(${p.src})</div>`;
+    fig.className = 'reveal d' + (i % 3);
+    fig.innerHTML = `<div class="ph">${phIcon}<span></span></div>`;
     const img = new Image();
-    img.alt = p.caption; img.loading = 'lazy';
-    img.onload = () => { fig.innerHTML = ''; fig.append(img); fig.insertAdjacentHTML('beforeend', `<figcaption>${p.caption}</figcaption>`); };
+    img.loading = 'lazy';
+    img.onload = () => {
+      fig.innerHTML = ''; fig.append(img);
+      const cap = document.createElement('figcaption');
+      cap.textContent = p[lang];
+      fig.append(cap);
+      requestAnimationFrame(() => img.classList.add('loaded'));
+    };
     img.src = p.src;
     grid.append(fig);
+    return { fig, img, p };
   });
+
+  // Language switch
+  const langBtns = document.querySelectorAll('.lang button');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const render = () => {
+    document.documentElement.lang = lang;
+    document.title = t('meta.title');
+    metaDesc.content = t('meta.desc');
+    i18nNodes.forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+    figs.forEach(({ fig, img, p }) => {
+      img.alt = p[lang];
+      const ph = fig.querySelector('.ph span'), cap = fig.querySelector('figcaption');
+      if (ph) ph.textContent = `${p[lang]} · ${t('gal.soon')}`;
+      if (cap) cap.textContent = p[lang];
+    });
+    langBtns.forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+    btn.setAttribute('aria-label', t(nav.classList.contains('open') ? 'ui.close' : 'ui.open'));
+  };
+  const setLang = next => {
+    if (next === lang) return;
+    try { localStorage.setItem('dkvs-lang', next); } catch (e) {}
+    if (reduceMotion) { lang = next; render(); return; }
+    document.body.classList.add('lang-swap');
+    setTimeout(() => {
+      lang = next; render();
+      requestAnimationFrame(() => document.body.classList.remove('lang-swap'));
+    }, 200);
+  };
+  langBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // Starting language: ?lang= in the link, then the visitor's last choice, then their browser language
+  let saved = null;
+  try { saved = localStorage.getItem('dkvs-lang'); } catch (e) {}
+  const fromUrl = new URLSearchParams(location.search).get('lang');
+  const valid = v => v === 'en' || v === 'kn';
+  lang = valid(fromUrl) ? fromUrl : valid(saved) ? saved
+    : (navigator.language || '').toLowerCase().startsWith('kn') ? 'kn' : 'en';
+  render();
+
+  // Soft reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  // Highlight the nav link for the section in view
+  const links = [...document.querySelectorAll('nav a')];
+  if ('IntersectionObserver' in window) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
+  }
 </script>
 </body>
 </html>

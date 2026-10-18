@@ -8,6 +8,10 @@ Open `index.html` in a browser. There is no build step. It can be hosted on GitH
 
 Put photos in `images/gallery/` named `1.jpg` to `6.jpg`. They show up in the Gallery section on their own. To change captions or add more photos, edit the `photos` list near the end of `index.html`.
 
+## English and Kannada
+
+The EN / ಕನ್ನಡ switch in the header changes the page language and remembers the visitor's choice. Links ending in `?lang=kn` open the site in Kannada. English text lives in the HTML; the Kannada text is in the `KN` list near the start of the script in `index.html`. The Kannada translations should be checked by a fluent reader.
+
 ## Details to confirm
 
 Online listings don't agree on some details. Please check these with the Sangha office:

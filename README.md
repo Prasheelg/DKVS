@@ -6,7 +6,11 @@ Open `index.html` in a browser. There is no build step. It can be hosted on GitH
 
 ## Adding photos
 
-Put photos in `images/gallery/` named `1.jpg` to `6.jpg`. They show up in the Gallery section on their own. To change captions or add more photos, edit the `photos` list near the end of `index.html`.
+Put photos in `images/gallery/` named `1.jpg` to `6.jpg`. They show up in the Gallery section on their own, and open full size when clicked. The current six came from visitor photos on the Google Maps listing (see the note under Background photos). To change captions or add more photos, edit the `photos` list near the end of `index.html`.
+
+## Background photos
+
+The photos behind the hero, the Activities section, the booking banner and the footer, and the sanctum photo in the Prarthana section, are in `images/bg/` (`shrine.jpg`, `pooja.jpg`, `diyas.jpg`, `exterior.jpg`, `sanctum.jpg`). They were taken from visitor photos on the DKVS Google Maps listing. Get permission from the photographers, or replace them with the Sangha's own photos, before relying on them. To swap one, keep the same file name.
 
 ## English and Kannada
 
